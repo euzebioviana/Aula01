@@ -5,30 +5,26 @@ import java.math.BigDecimal;
 public abstract class Transacao {
 	private Conta origem;
 	private Conta destino;
+	private BigDecimal valor;
 	
-	public Transacao(Conta orConta, Conta desConta){
+	public Transacao(Conta orConta, Conta desConta,BigDecimal valor){
 		this.origem = orConta;
 		this.destino = desConta;
+		this.valor = valor;
 	}
 	
-	public void executar(BigDecimal valor){
-		
-	}
+	public abstract void executar();
 
 	public Conta getOrigem() {
 		return origem;
-	}
-
-	public void setOrigem(Conta origem) {
-		this.origem = origem;
 	}
 
 	public Conta getDestino() {
 		return destino;
 	}
 
-	public void setDestino(Conta destino) {
-		this.destino = destino;
+	public BigDecimal getValor(){
+		return valor;
 	}
 	
 	

@@ -5,6 +5,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 
+import javax.swing.text.rtf.RTFEditorKit;
+
 public class Conta {
 	private Pessoa correntista;
 	private Collection<Pessoa> secundarios;
@@ -18,6 +20,9 @@ public class Conta {
 		this.secundarios = new ArrayList<Pessoa>();
 		this.numero = numero;
 		
+	}
+	public Pessoa getCorrentista(){
+		return correntista;
 	}
 	
 	public void creditar(BigDecimal valor){
