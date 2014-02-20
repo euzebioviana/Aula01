@@ -25,6 +25,8 @@ public class GerenteTransacao {
 				transacao.executar();
 			} catch (TransactionExecutionException e) {
 				this.nExecutadas.add(e.getFonte());
+				e.printStackTrace();
+			
 			}
 			aux.add(transacao);
 		}
@@ -54,6 +56,10 @@ public class GerenteTransacao {
 	
 	public Iterator<Transacao> getTransacoesAExecutar(){
 		return Collections.unmodifiableList(this.aExecutar).iterator();
+	}
+	
+	public Iterator<Transacao> getTransacoesNaoExecutadas(){
+		return Collections.unmodifiableList(this.nExecutadas).iterator();
 	}
 
 }

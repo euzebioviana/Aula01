@@ -26,6 +26,12 @@ public class UsaConta {
 		
 		System.out.println("Correntista: "+conta.getCorrentista().getNome()+ "\n Saldo incial:"+conta.getSaldo());
 		
+		Transacao retirada  = new Retirada(conta, null, new BigDecimal(100));
+		gerenteTransacao.registrarTransacoesAExecutar(retirada);
+		gerenteTransacao.executarTransacoes();
+		
+
+		
 		
 		
 		
