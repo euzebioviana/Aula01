@@ -5,9 +5,12 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import util.TransactionExecutionException;
+
 public class GerenteTransacao {
 	private List<Transacao> aExecutar = new ArrayList<Transacao>();
 	private List<Transacao> aExecutadas = new ArrayList<Transacao>();
+	private List<Transacao> nExecutadas = new ArrayList<Transacao>();
 	
 	//construtor da Classe GerenteTransação
 	public GerenteTransacao(){
@@ -18,7 +21,11 @@ public class GerenteTransacao {
 		List<Transacao> aux = new ArrayList<Transacao>();
 		
 		for(Transacao transacao : aExecutar){
-			transacao.executar();
+			try {
+				transacao.executar();
+			} catch (TransactionExecutionException e) {
+				this.nExecutadas.add(e.getFonte());
+			}
 			aux.add(transacao);
 		}
 		this.aExecutadas.addAll(aux);

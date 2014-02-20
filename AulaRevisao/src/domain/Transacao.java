@@ -2,6 +2,8 @@ package domain;
 
 import java.math.BigDecimal;
 
+import util.TransactionExecutionException;
+
 public abstract class Transacao {
 	private Conta origem;
 	private Conta destino;
@@ -13,7 +15,7 @@ public abstract class Transacao {
 		this.valor = valor;
 	}
 	
-	public abstract void executar();
+	public abstract void executar() throws TransactionExecutionException;
 
 	public Conta getOrigem() {
 		return origem;
